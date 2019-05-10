@@ -162,6 +162,13 @@ p {
 	color: var(--color-grey-light);
 }
 
+@media ( min-width: 1500px ) {
+
+	p {
+		font-size: var(--size-medium);
+	}
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
@@ -241,6 +248,12 @@ Primary Navigation
 	font-size: var(--size-xsmall);
 }
 
+@media ( min-width: 1500px ) {
+	.nav-site ul {
+		font-size: var(--size-small);
+	}
+}
+
 .nav-site li a {
 	color: var(--color-grey-light);
 	display: inline-block;
@@ -277,7 +290,6 @@ Primary Navigation
 
 	.nav-site li {
 		display: inline;
-
 	}
 
 	.nav-site li a {
@@ -291,53 +303,30 @@ header {
 	justify-content: space-between;
 }
 
-
-
 /************************************
 Secondary Navigation
 **************************************/
 
 .secondary-nav {
-	margin-top: 1.5rem;
+	margin-top: 5rem;
 }
 
-.secondary-nav ul {
-	font-weight: 300;
-	letter-spacing: 3px;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	text-transform: uppercase;
-	font-size: var(--size-xsmall);
-}
-
-.secondary-nav li a {
-	color: var(--color-grey-light);
+.secondary-nav a {
+	color: var(--color-grey);
 	display: inline-block;
 	font-family: var(--font-secondary);
-	margin-right: 1rem;
-	text-decoration: none;
-}
-
-.secondary-nav li a:hover {
-	text-decoration: underline;
-}
-
-@media ( min-width: 650px ) {
-
-	.nav-site li {
-		display: inline;
-	}
-
-	.nav-site li a {
-		padding: 0;
-	}
-
-}
-
-.secondary-nav .current-page {
+	font-size: var(--size-xsmall);
 	font-weight: 600;
-	color: var(--color-grey);
+	letter-spacing: 0;
+	list-style-type: none;
+	margin: 0;
+	padding-right: 1.4rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.secondary-nav a:hover {
+	text-decoration: underline;
 }
 
 /************************************
@@ -349,6 +338,10 @@ Portfolio Grid
 	display: grid;
 	grid-gap: 1.5rem;
 	justify-content: center;
+}
+
+.work-grid img {
+	min-width: 100%;
 }
 
 
@@ -478,6 +471,15 @@ label {
 
 }
 
+@media ( min-width: 1700px ) {
+
+	input, textarea, select {
+		min-width: 35rem;
+		margin-bottom: 3rem;
+	}
+
+}
+
 button, input[type="submit"] {
 	background: var(--color-white);
 	border: 2px solid red;
@@ -487,7 +489,7 @@ button, input[type="submit"] {
 	font-family: var(--font-secondary);
 	font-size: var(--size-small);
 	letter-spacing: 2px;
-	margin-bottom: 1rem;
+	margin-bottom: 10rem;
 	min-width: 10rem;
 	padding: 12px 8px 12px 8px;
 	text-transform: uppercase;
@@ -553,13 +555,8 @@ Hero Component
 		grid-template-columns: 2fr 1fr;
 	}
 
-	.hero h1 {
-		font-size: var(--size-large);
-	}
-
 	.hero .primary-button {
 		padding: .5rem 2rem;
-		text-align: center;
 	}
 
 }
@@ -579,21 +576,44 @@ Hero Component
 
 @media ( min-width: 1000px ) {
 	.hero {
-		grid-template-columns: 2fr 1fr;
 		margin-left: 8rem;
 		margin-right: 8rem;
+	}
+
+	.hero .primary-button {
+		padding: 1rem 2rem;
 	}
 
 }
 
 @media ( min-width: 1200px ) {
 
-	.hero h1 {
-		font-size: var(--size-xxlarge);
+	.hero {
+		margin-left: 8rem;
+		margin-right: 8rem;
 	}
 
 	.hero .primary-button {
 		padding: 1rem 3.3rem;
+	}
+
+	.hero h1 {
+		font-size: var(--size-xlarge);
+	}
+}
+
+@media ( min-width: 1600px ) {
+
+	.hero h1 {
+		font-size: var(--size-xxxlarge);
+	}
+}
+
+@media ( min-width: 1700px ) {
+
+	.hero {
+		margin-left: 14rem;
+		margin-right: 14rem;
 	}
 }
 
@@ -612,23 +632,31 @@ About me page
 	}
 }
 
-@media ( min-width: 600px ) {
+@media ( min-width: 900px ) {
 	
 	.about-me {
-		padding-left: 11.5px;
-		padding-right: 11.5px;
+		padding-left: 8rem;
+		padding-right: 8rem;
 		margin-left: auto;
 		margin-right: auto;
-		width: 60%;
 		margin-bottom: 4rem;
 		line-height: 2;
 	}
 
 	.about-me h1 {
 		font-size: var(--size-xxlarge);
-		margin: 0;
+		margin-bottom: 0;
 	}
 }
+
+@media (min-width: 1500px ) {
+	.about-me {
+		padding-left: 15rem;
+		padding-right: 15rem;
+	}
+
+}
+
 
 /**************************************
 Buttons
@@ -645,6 +673,7 @@ Buttons
 	padding: 1rem 3.3rem;
 	text-transform: uppercase;
 	letter-spacing: 2px;
+	text-align: center;
 }
 
 .primary-button:visited {
@@ -666,37 +695,90 @@ Buttons
 Resume
 *****************************************/
 
-.resume-grid h4 {
-	margin-bottom: 0;
+.resume-grid h2 {
 	font-weight: 700;
 	font-family: 'Oswald', sans-serif;
+	font-size: var(--size-large);
+}
+
+.resume-grid {
+	margin-bottom: 25rem;
 }
 
 @media ( min-width: 800px ) {
+
 	.resume-grid {
 		display: grid;
 		grid-template-columns: 3fr 1fr;
+		grid-template-rows: repeat(3, 12rem);
 		grid-gap: 2rem;
-		padding-left: 3rem;
-		padding-right: 3rem;
+	}
+
+	.education {
+		grid-row-start: 1;
+		grid-row-end: 1;
+	}
+
+	.skills {
+		grid-column-start: 2;
+		grid-column-end: 4;
+	}
+
+	.work {
+		grid-row-start: 2;
+		grid-row-end: 3;
+		grid-column-start: 1;
+		grid-column-end: 2;
 	}
 
 }
 
-@media ( min-width: 1100px ) {
+@media ( min-width: 1200px ) {
+
 	.resume-grid {
-		padding-left: 11rem;
-		padding-right: 11rem;
+		padding-left: 5rem;
+		padding-right: 5rem;
+		grid-template-rows: repeat(3, 13rem);
 	}
-
 }
 
-.skills p {
+@media ( min-width: 1600px ) {
+
+	.resume-grid {
+		padding-left: 13rem;
+		padding-right: 13rem;
+		grid-template-rows: repeat(3, 14rem);
+	}
+}
+
+.skills h3 {
+	font-size: var(--size-medium);
+	color: var(--color-grey-light);
+	font-weight: 600;
+	text-transform: none;
+	letter-spacing: 0;
+	font-family: var(--font-secondary);
+	margin-bottom: 0;
+}
+
+.education h3, .work h3 {
+	font-size: var(--size-small);
+	color: var(--color-grey-light);
+	font-weight: 400;
+	text-transform: none;
+	letter-spacing: 0;
+	font-family: var(--font-secondary);
+	margin-bottom: 0;
+}
+
+@media ( min-width: 1500px ) {
+	.education h3, .work h3 {
+		font-size: var(--size-medium);
+	}
+}
+
+.education p, .skills p {
 	margin: 0;
-}
-
-.skills section {
-	margin-top: 1rem;
 }
 
 /**************************************
@@ -707,7 +789,11 @@ Portfolio Item 1 - Nextbus
 	text-align: center;
 }
 
-@media (min-width: 400px) {
+.intro-content h2 {
+	margin-bottom: 2rem;
+}
+
+@media ( min-width: 400px ) {
 	.intro-content {
 		padding: 0;
 		margin-left: auto;
@@ -715,31 +801,50 @@ Portfolio Item 1 - Nextbus
 	}
 }
 
-@media (min-width: 1200px ) {
+@media ( min-width: 1000px ) {
 	.intro-content {
-		padding-left: 11rem;
-		padding-right: 11rem;
+		padding-left: 10rem;
+		padding-right: 10rem;
 	}
 }
 
-@media (min-width: 790px) {
+@media ( min-width: 1600px ) {
+	.intro-content {
+		padding-left: 15rem;
+		padding-right: 15rem;
+	}
+}
 
-	.intro-content-grid, .team-grid, .analysis-grid, .user-testing-grid {
+@media ( min-width: 790px ) {
+
+	.intro-content-grid, .analysis-grid, .user-testing-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		grid-gap: 3rem;
+		grid-gap: 2rem;
 		align-items: center;
+	}
+
+	.col-2 {
+		font-size: var(--size-medium);
 	}
 
 	.team-grid {
 		align-items: start;
 	}
+}
 
-	.user-testing-grid {
+@media ( min-width: 900px ) {
+
+	.col-2 {
+		font-size: var(--size-xmedium);
+	}
+
+	.team-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
 		grid-gap: 2rem;
 	}
 }
-
 /**************************************
 Portfolio Item 2 - #tagether
 *****************************************/
@@ -749,7 +854,7 @@ Portfolio Item 2 - #tagether
 }
 
 
-@media (min-width: 400px) {
+@media ( min-width: 400px ) {
 	.intro-tagether {
 		padding: 0;
 		margin-left: auto;
@@ -757,7 +862,7 @@ Portfolio Item 2 - #tagether
 	}
 }
 
-@media (min-width: 1200px ) {
+@media ( min-width: 1200px ) {
 	.intro-tagether {
 		padding-left: 11rem;
 		padding-right: 11rem;
@@ -765,7 +870,7 @@ Portfolio Item 2 - #tagether
 }
 
 
-@media (min-width: 750px ) {
+@media ( min-width: 750px ) {
 	.tagether-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
@@ -773,7 +878,7 @@ Portfolio Item 2 - #tagether
 	}
 }
 
-@media (min-width: 1000px ) {
+@media ( min-width: 1000px ) {
 	.tagether-grid {
 		grid-gap: 8rem;
 	}
