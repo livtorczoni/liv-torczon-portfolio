@@ -5,7 +5,8 @@ body {
 }
 
 main {
-	padding: 0 2.5rem;
+	padding: 0 1rem;
+	animation: fadeIn .3s ease;
 }
 
 html {
@@ -184,17 +185,29 @@ a:active {
 
 .caption {
 	font-size: var(--size-xsmall);
+	margin-top: 0;
 }
 
 /************************************
 Header Component
 **************************************/
 
-header {
-	display: flex;
-	justify-content: space-between;
-	margin: 2rem 0;
-	padding: 0 2.5rem;
+@media ( min-width: 400px ) {
+	
+	header {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+@media ( min-width: 500px ) {
+	header {
+		flex-direction: row;
+		justify-content: space-between;
+		margin: 2rem 0;
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
 }
 
 .logo {
@@ -212,22 +225,7 @@ footer {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	margin: 3rem;
-}
-
-footer a {
-	padding: .2rem;
-	text-transform: uppercase;
-	font-family: var(--font-secondary);
-	color: var(--color-grey-light);
-	font-size: var(--size-xsmall);
-	font-weight: 100;
-	letter-spacing: 2px;
-}
-
-footer a:hover {
-	font-weight: 700;
-	color: var(--color-grey);
+	margin: 1rem;
 }
 
 /************************************
@@ -266,24 +264,10 @@ Primary Navigation
 	text-decoration: underline;
 }
 
-.nav-site .current-page {
-	font-weight: 600;
-	color: var(--color-grey);
-}
-
 @media ( min-width: 400px ) {
-
-	.current-page {
-		border-left: 1px solid black;
+	.nav-site li a {
+		padding-bottom: 1rem;
 	}
-}
-
-@media ( min-width: 650px ) {
-
-	.current-page {
-		border-left: none;
-	}
-
 }
 
 @media ( min-width: 650px ) {
@@ -293,14 +277,14 @@ Primary Navigation
 	}
 
 	.nav-site li a {
-		padding: 0;
+		padding-top: 0;
 	}
 
 }
 
-header {
-	display: flex;
-	justify-content: space-between;
+.nav-site .current-page {
+	font-weight: 600;
+	color: var(--color-grey);
 }
 
 /************************************
@@ -308,25 +292,27 @@ Secondary Navigation
 **************************************/
 
 .secondary-nav {
-	margin-top: 5rem;
+	margin-top: 7rem;
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	text-align: center;
 }
 
 .secondary-nav a {
-	color: var(--color-grey);
-	display: inline-block;
+	color: var(--color-grey-light);
 	font-family: var(--font-secondary);
 	font-size: var(--size-xsmall);
 	font-weight: 600;
-	letter-spacing: 0;
-	list-style-type: none;
+	letter-spacing: 1px;
 	margin: 0;
 	padding-right: 1.4rem;
 	text-decoration: none;
-	text-transform: uppercase;
+	text-transform: lowercase;
 }
 
 .secondary-nav a:hover {
 	text-decoration: underline;
+	color: var(--color-grey);
 }
 
 /************************************
@@ -334,10 +320,23 @@ Portfolio Grid
 **************************************/
 
 .work-grid {
+	animation: fadeIn .3s ease;
 	align-items: center;
 	display: grid;
 	grid-gap: 1.5rem;
 	justify-content: center;
+}
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
 }
 
 .work-grid img {
@@ -359,6 +358,14 @@ Portfolio Grid
 		padding-left: 2rem;
 		padding-right: 2rem;
 		padding-top: 3rem;
+	}
+}
+
+@media ( min-width: 1500px ) {
+	.work-grid {
+		padding-left: 7rem;
+		padding-right: 7rem;
+		grid-gap: 3rem;
 	}
 }
 
@@ -391,7 +398,12 @@ a:hover span {
 
 }
 
-span p {
+a:active span {
+	background-color: white;
+	border: solid 2px lightblue;
+}
+
+span h2 {
 	color: var(--color-grey);
 	font-family: var(--font-primary);
 	font-size: var(--size-large);
@@ -489,7 +501,7 @@ button, input[type="submit"] {
 	font-family: var(--font-secondary);
 	font-size: var(--size-small);
 	letter-spacing: 2px;
-	margin-bottom: 10rem;
+	margin-bottom: 7rem;
 	min-width: 10rem;
 	padding: 12px 8px 12px 8px;
 	text-transform: uppercase;
@@ -503,6 +515,10 @@ button:hover, input[type="submit"]:hover, .hover {
 	background-color: red;
 	color: var(--color-white);
 	transition: 0.15s background-color linear, 0.1s color linear;
+}
+
+button:disabled, input[type="submit"]:disabled {
+	background-color: var(--color-grey-light);
 }
 
 button:focus, input[type="submit"]:focus, .focus {
@@ -522,6 +538,7 @@ Hero Component
 		display: grid;
 		grid-template-columns: 1fr;
 		margin: 2rem;
+		animation: fadeIn .3s ease;
 	}
 
 	.hero .primary-button {
@@ -607,6 +624,10 @@ Hero Component
 	.hero h1 {
 		font-size: var(--size-xxxlarge);
 	}
+
+	.hero .primary-button {
+		font-size: var(--size-medium);
+	}
 }
 
 @media ( min-width: 1700px ) {
@@ -625,25 +646,27 @@ About me page
 @media ( min-width: 400px ) {
 	.about-me {
 		margin-left: 0;
+		animation: fadeIn .5s ease;
 	}
 
-	.about-me h1 {
+	.about-me h2 {
 		font-size: var(--size-large);
+		text-transform: none;
 	}
 }
 
 @media ( min-width: 900px ) {
 	
 	.about-me {
-		padding-left: 8rem;
-		padding-right: 8rem;
+		padding-left: 10rem;
+		padding-right: 10rem;
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: 4rem;
 		line-height: 2;
 	}
 
-	.about-me h1 {
+	.about-me h2 {
 		font-size: var(--size-xxlarge);
 		margin-bottom: 0;
 	}
@@ -669,7 +692,8 @@ Buttons
 	color: var(--color-grey);
 	display: inline-block;
 	font-family: var(--font-secondar);
-	margin: 2rem 1rem 1rem 1rem;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 	padding: 1rem 3.3rem;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -691,6 +715,24 @@ Buttons
 	transform: scale(0.99);
 }
 
+.primary-button:disabled {
+	background-color: var(--color-grey-light);
+}
+
+.previous-next {
+	color: var(--color-grey-light);
+	display: block;
+	font-style: oblique;
+	font-family: var(--font-secondary);
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	padding-top: 7rem;
+}
+
+.previous-next:hover {
+	color: pink;
+}
+
 /**************************************
 Resume
 *****************************************/
@@ -701,17 +743,14 @@ Resume
 	font-size: var(--size-large);
 }
 
-.resume-grid {
-	margin-bottom: 25rem;
-}
-
 @media ( min-width: 800px ) {
 
 	.resume-grid {
 		display: grid;
 		grid-template-columns: 3fr 1fr;
-		grid-template-rows: repeat(3, 12rem);
+		grid-template-rows: repeat(3, 8rem);
 		grid-gap: 2rem;
+		margin-bottom: 25rem;
 	}
 
 	.education {
@@ -738,7 +777,7 @@ Resume
 	.resume-grid {
 		padding-left: 5rem;
 		padding-right: 5rem;
-		grid-template-rows: repeat(3, 13rem);
+		grid-template-rows: repeat(3, 8rem);
 	}
 }
 
@@ -747,21 +786,11 @@ Resume
 	.resume-grid {
 		padding-left: 13rem;
 		padding-right: 13rem;
-		grid-template-rows: repeat(3, 14rem);
+		grid-template-rows: repeat(3, 10rem);
 	}
 }
 
-.skills h3 {
-	font-size: var(--size-medium);
-	color: var(--color-grey-light);
-	font-weight: 600;
-	text-transform: none;
-	letter-spacing: 0;
-	font-family: var(--font-secondary);
-	margin-bottom: 0;
-}
-
-.education h3, .work h3 {
+.education h3, .work h3, .skills h3 {
 	font-size: var(--size-small);
 	color: var(--color-grey-light);
 	font-weight: 400;
@@ -769,6 +798,11 @@ Resume
 	letter-spacing: 0;
 	font-family: var(--font-secondary);
 	margin-bottom: 0;
+}
+
+.skills h3 {
+	font-size: var(--size-medium);
+	font-weight: 600;
 }
 
 @media ( min-width: 1500px ) {
@@ -785,7 +819,7 @@ Resume
 Portfolio Item 1 - Nextbus
 *****************************************/
 
-.intro-content h1 {
+.intro-content h1, .intro-content a {
 	text-align: center;
 }
 
@@ -849,7 +883,7 @@ Portfolio Item 1 - Nextbus
 Portfolio Item 2 - #tagether
 *****************************************/
 
-.intro-tagether h1 {
+.intro-tagether h1, .intro-tagether a {
 	text-align: center; 
 }
 
@@ -884,3 +918,226 @@ Portfolio Item 2 - #tagether
 	}
 }
 
+/******************************************
+Examples
+******************************************/
+
+@media ( min-width: 900px ) {
+	.design-system {
+		animation: fadeIn .2s ease;
+		padding-left: 13rem;
+	}
+}
+
+.examples {
+	border-left: dotted 1px var(--color-grey-light);
+	padding: 1rem;
+	margin-top: 2rem;
+
+}
+
+.examples img {
+	max-width: 50%;
+}
+
+.examples .secondary-nav {
+	text-align: left;
+}
+
+.example-details {
+	background-color: #f8f9f9;
+	border-radius: 4px;
+	color: #838c91;
+	display: block;
+	font-size: 14px;
+	line-height: 22px;
+	margin-right: 12%;
+	max-width: 260px;
+	padding-left: 1rem;
+	text-transform: lowercase;
+	width: 100%;
+}
+
+@media ( min-width: 400px ) {
+	figure {
+		margin: 0rem;
+	}
+	figure svg {
+		max-width: 20rem;
+	}
+}
+
+
+@media ( min-width: 640px ) {
+	figure svg {
+		max-width: 30rem;
+	}
+}
+
+.example-white-text {
+	background-color: var(--color-grey);
+	color: var(--color-white);
+	display: inline-block;
+}
+
+.example-grey-text {
+	color: var(--color-grey);
+}
+
+.example-grey-light-text {
+	color: var(--color-grey-light);
+}
+
+.example-open-sans-600 {
+	font-weight: 600;
+}
+
+.example-open-sans-400 {
+	font-weight: 400;
+}
+
+.example-open-sans-300 {
+	font-weight: 300;
+}
+
+.example-quicksand-700 {
+	font-weight: 700;
+}
+
+.example-quicksand-500 {
+	font-weight: 500;
+}
+
+.example-quicksand-400 {
+	font-weight: 400;
+}
+
+.example-quicksand-300 {
+	font-weight: 300;
+}
+
+.examples .contact {
+	align-items: flex-start;
+}
+
+.design-system-title {
+	margin-top: 0;
+}
+
+figure .portfolio-footer {
+	text-align: left;
+	text-transform: uppercase;
+}
+
+@media ( min-width: 900px ) {
+
+	.fixed-nav {
+		height: 100%; 
+		width: 10rem;
+		position: fixed;
+		z-index: 1; 
+		top: 0;
+		left: 0;
+		background-color: var(--color-white);
+		overflow-x: hidden; 
+		padding-left: 1rem;
+
+	}
+
+}
+
+@media ( min-width: 900px ) {
+
+	.fixed-nav {
+		height: 100%; 
+		width: 10rem;
+		position: fixed;
+		z-index: 1; 
+		top: 0;
+		left: 0;
+		background-color: var(--color-white);
+		overflow-x: hidden; 
+		padding-left: 1rem;
+
+	}
+
+}
+
+@media ( min-width: 900px ) {
+
+	.design-system-footer {
+		display: none;
+	}
+}
+
+/******************************************
+Grid Examples
+******************************************/
+
+.tagether-grid-example .intro-content-grid {
+	background-color: green;
+}
+
+.tagether-grid-example .col-2 {
+	background-color: blue;
+}
+
+.tagether-grid-example .tagether-grid {
+	background-color: yellow;
+}
+
+.tagether-grid-example .tagether-grid .iteration-2 {
+	background-color: magenta;
+}
+
+.tagether-grid-example .tagether-grid .iteration-3 {
+	background-color: skyblue;
+}
+
+.tagether-grid-example .tagether-grid .iteration-4 {
+	background-color: lightgreen;
+}
+
+.nextbus-grid-example .intro-content-grid {
+	background-color: green;
+}
+
+.nextbus-grid-example .intro-content-grid .col-2 {
+	background-color: lightpink;
+}
+
+.nextbus-grid-example .team-grid {
+	background-color: orange;
+}
+
+.nextbus-grid-example .team-grid .col-1 {
+	background-color: yellow;
+}
+
+.nextbus-grid-example .team-grid .col-2 {
+	background-color: magenta;
+}
+
+.nextbus-grid-example .analysis-grid {
+	background-color: black;
+}
+
+.nextbus-grid-example .analysis-grid div {
+	background-color: lightpink;
+}
+
+.nextbus-grid-example .user-testing-grid {
+	background-color: lightpink;
+}
+
+.examples .previous-next {
+	padding-top: 0;
+}
+
+footer .previous-next {
+	padding: 2rem;
+}
+
+.examples .secondary-nav {
+	margin-top: 0;
+}
